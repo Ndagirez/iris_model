@@ -6,7 +6,7 @@ import pandas as pd
 
 # Load the trained model
 def load_model():
-    with open("../decision_tree_model.sav", "rb") as f:
+    with open("./decision_tree_model.sav", "rb") as f:
         model = pickle.load(f)
     return model
 
@@ -23,4 +23,5 @@ petal_width = st.number_input("Petal Width (cm)", min_value=0.0, max_value=10.0,
 if st.button("Predict"):
     features = [[sepal_length, sepal_width, petal_length, petal_width]]
     prediction = model.predict(features)
+
     st.write(f"Predicted Iris Species: {prediction[0]}")
