@@ -4,11 +4,11 @@ import numpy as np
 import pandas as pd
 import os
 
-
-model_path = os.path.join(os.path.dirname(__file__), "decision_tree_model.sav")
-with open(model_path, "rb") as f:
-    model = pickle.load(f)
-
+def load_model():
+    model_path = os.path.join(os.path.dirname(__file__), "decision_tree_model.sav")
+    with open(model_path, "rb") as f:
+        model = pickle.load(f)
+    return model
 model = load_model()
 
 st.title("Iris Flower Prediction")
@@ -24,4 +24,5 @@ if st.button("Predict"):
     prediction = model.predict(features)
 
     st.write(f"Predicted Iris Species: {prediction[0]}")
+
 
