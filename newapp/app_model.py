@@ -1,10 +1,12 @@
 import streamlit as st
 import pickle  # or joblib
 import numpy as np
+import pandas as pd
+
 
 # Load the trained model
 def load_model():
-    with open("decision_tree_model.sav", "rb") as f:
+    with open("../decision_tree_model.sav", "rb") as f:
         model = pickle.load(f)
     return model
 
